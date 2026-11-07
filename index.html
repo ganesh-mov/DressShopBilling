@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dress Shop Billing</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="loginScreen" class="screen">
+  <div class="login-box">
+    <h1>👗 Dress Shop Billing</h1>
+    <p class="muted">Offline Billing &amp; Inventory System</p>
+    <input id="loginUsername" type="text" placeholder="Username" autocomplete="off">
+    <input id="loginPassword" type="password" placeholder="Password">
+    <button class="btn primary wide" onclick="handleLogin()">Login</button>
+    <p id="loginError" class="error"></p>
+    <p class="muted small">First time? Default login: <b>admin / admin123</b></p>
+  </div>
+</div>
+
+<!-- ============ MAIN APP ============ -->
+<div id="appShell" class="screen hidden">
+  <aside id="sidebar">
+    <div class="brand">👗 <span id="shopNameLabel">Dress Shop</span></div>
+    <nav>
+      <button class="nav-btn active" data-page="dashboard">📊 Dashboard</button>
+      <button class="nav-btn" data-page="billing">🧾 Billing</button>
+      <button class="nav-btn" data-page="products">👕 Products</button>
+      <button class="nav-btn" data-page="barcodePrint">🏷️ Barcode Print</button>
+      <button class="nav-btn" data-page="customers">👥 Customers</button>
+      <button class="nav-btn" data-page="reports">📈 Reports</button>
+      <button class="nav-btn" data-page="invoices">🔎 Invoice Search</button>
+      <button class="nav-btn owner-only" data-page="users">🔐 Users &amp; Roles</button>
+      <button class="nav-btn" data-page="settings">⚙️ Settings</button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn small" onclick="toggleDarkMode()">🌓 Dark Mode</button>
+      <div class="whoami" id="whoamiLabel"></div>
+      <button class="btn small danger" onclick="handleLogout()">Logout</button>
+    </div>
+  </aside>
+
+  <main id="content"></main>
+</div>
+
+<!-- printable invoice / label areas are injected dynamically -->
+<div id="printArea" class="hidden"></div>
+
+<script src="js/db.js"></script>
+<script src="js/barcode.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
